@@ -32,6 +32,8 @@ const Search = ({
 				});
 			}
 
+			console.log("newUrl************", newUrl);
+
 			router.push(newUrl, { scroll: false });
 		}, 300);
 

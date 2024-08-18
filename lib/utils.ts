@@ -69,6 +69,10 @@ export const formatPrice = (price: string) => {
 export function formUrlQuery({ params, key, value }: UrlQueryParams) {
 	const currentUrl = qs.parse(params);
 
+	console.log("currentUrl123", currentUrl);
+
+	if (key === "query") delete currentUrl.page;
+
 	currentUrl[key] = value;
 
 	return qs.stringifyUrl(

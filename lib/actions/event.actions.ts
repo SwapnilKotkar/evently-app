@@ -114,6 +114,8 @@ export async function getAllEvents({
 	page,
 	category,
 }: GetAllEventsParams) {
+	console.log("hello, ", { query, limit, page, category });
+
 	try {
 		await connectToDatabase();
 
@@ -130,7 +132,7 @@ export async function getAllEvents({
 			],
 		};
 
-		const skipAmount = (Number(page) - 1) * limit;
+		const skipAmount = query ? 0 : (Number(page) - 1) * limit;
 		const eventsQuery = Event.find(conditions)
 			.sort({ createdAt: "desc" })
 			.skip(skipAmount)
