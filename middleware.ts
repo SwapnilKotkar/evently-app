@@ -3,6 +3,7 @@ import { authMiddleware } from "@clerk/nextjs/server";
 export default authMiddleware({
 	publicRoutes: [
 		"/",
+		"/signin", // Add the signin route here
 		"/events/:id",
 		"/api/webhook/clerk",
 		"/api/webhook/stripe",
